@@ -2,13 +2,6 @@
 const {
   Model
 } = require('sequelize');
-
-const bcrypt = require('bcryptjs');
-const hashing = (password) => {
-  const salt = bcrypt.genSaltSync(10);
-  return bcrypt.hashSync(password, salt)
-}
-
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**

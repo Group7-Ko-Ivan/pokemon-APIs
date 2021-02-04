@@ -1,14 +1,4 @@
 const { User } = require('../models');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-
-const compare = (pass, hashedPass) => {
-  return bcrypt.compareSync(pass, hashedPass);
-}
-
-const generateToken = (payload) => {
-  return jwt.sign(payload, 'aiueo');
-}
 
 class UserController {
 
@@ -28,8 +18,7 @@ class UserController {
         }
       })
       .catch( err => {
-        // next(err);
-        res.json(err)
+        next(err);
       })
 
   }
@@ -53,8 +42,7 @@ class UserController {
         res.status(200).json( { access_token } )
       })
       .catch( err => {
-        // next(err);
-        res.json(err)
+        next(err);
       })
   }
 
