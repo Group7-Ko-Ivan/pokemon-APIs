@@ -20,10 +20,10 @@ Returns All Pokemon Trading Card List
 
   * **Code**: `200`
   * **Content**:
-    > {"output": [
+    >`{"output": [
         "https://images.pokemontcg.io/pl1/1.png",
         "https://images.pokemontcg.io/det1/1.png"
-        }
+        }`
 
 <br>
 
@@ -51,10 +51,10 @@ Returns All Pokedex List
 
   * **Code**: `200`
   * **Content**:
-    > "images": {
+    > `"images": {
         "small": "https://images.pokemontcg.io/pl1/1.png",
         "large": "https://images.pokemontcg.io/pl1/1_hires.png"
-    }
+    }`
 
 <br>
 
@@ -82,10 +82,10 @@ Returns Currency List
 
   * **Code**: `200`
   * **Content**:
-    > "images": {
+    > `"images": {
         "small": "https://images.pokemontcg.io/pl1/1.png",
         "large": "https://images.pokemontcg.io/pl1/1_hires.png"
-    }
+    }`
 
 <br>
 
@@ -96,3 +96,62 @@ Returns Currency List
 <br>
 
 # Users
+
+## User Login
+
+---
+
+User Login
+
+* URL: `/register`
+
+* Method: `POST`
+
+* Request Params: `None`
+
+* Request Body: `{ email, password }`
+
+* Success Response:
+
+  * **Code**: `200`
+  * **Content**:
+    > `"images": {
+        "small": "https://images.pokemontcg.io/pl1/1.png",
+        "large": "https://images.pokemontcg.io/pl1/1_hires.png"
+    }`
+
+<br>
+
+* **Error Response**
+  * **Code**: `500`
+  * **Content**: `Internal Server Error`
+
+<br>
+
+## Register User
+---
+
+Register User
+
+* URL: `/register`
+
+* Method: `POST`
+
+* Request Params: `None`
+
+* Request Body: `{ email, password }`
+
+* Success Response:
+
+  * **Code**: `200`
+  * **Content**:
+    > `"images": {
+        "small": "https://images.pokemontcg.io/pl1/1.png",
+        "large": "https://images.pokemontcg.io/pl1/1_hires.png"
+    }`
+
+<br>
+
+* **Error Response**
+  * **Code**: `500`
+  * **Content**: `Internal Server Error`
