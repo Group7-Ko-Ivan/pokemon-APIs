@@ -1,10 +1,10 @@
 const express = require("express")
 const router = express.Router()
 
-const user = require("./pokeRouter")
-const poke = require("./userRouter")
+const poke = require("./pokeRouter")
+const user = require("./userRouter")
 
 router.use('/pokedex', poke)
-router.use('/', user)
+router.use('/users', user)
 
 module.exports = router;
