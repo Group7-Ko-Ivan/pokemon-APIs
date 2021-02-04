@@ -31,10 +31,10 @@ class UserController {
 
     User.findOne({ where: { email } })
       .then( user => {
-        if ( !user ) throw { msg: 'Your email or password is incorrect'};
+        if ( !user ) throw { msg: 'Your email or password is incorrect', status: 400 };
         const comparedPassword = compare( password, user.password );
 
-        if ( !comparedPassword ) throw { msg: 'Your email or password is incorrect'};
+        if ( !comparedPassword ) throw { msg: 'Your email or password is incorrect', status: 400 };
         const payload = {
           id: user.id,
           email: user.email
