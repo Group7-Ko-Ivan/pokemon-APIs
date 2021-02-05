@@ -10,9 +10,12 @@ function checkToken() {
     $('#registerForm').hide()
     $("#loginForm").hide()
     $('#tcgList').hide()
+    $('#afterLogin').hide()
+    
   } else {
     $("#logoutBtn").show(500)
     $("#wheretoBtn").show(500)
+    $("#afterLogin").show(500)
     $("#loginBtn").hide()
     $("#registerBtn").hide()
     $("#loginForm").hide()
@@ -29,6 +32,7 @@ function registerFormShow() {
   $("#loginForm").hide()
   $("#wheretoBtn").hide()
   $("#registerForm").show(500)
+  $("#afterLogin").hide()
 }
 function loginFormShow() {
   $("#notLogin").hide()
@@ -38,6 +42,7 @@ function loginFormShow() {
   $("#registerForm").hide()
   $("#loginBtn").hide()
   $("#loginForm").show(500)
+  $("#afterLogin").hide()
 }
 
 function register() {
@@ -129,6 +134,7 @@ function onSignIn(googleUser) {
 }
 
 function getTcg() {
+  $('#afterLogin').hide()
   $('#tcgContainer').empty()
   $.ajax({
     method: 'GET',
@@ -154,6 +160,7 @@ function getTcg() {
 }
 
 function getPokemon() {
+  $('#afterLogin').hide()
   $('#tcgContainer').empty()
   $.ajax({
     method: 'GET',
@@ -165,6 +172,7 @@ function getPokemon() {
     .done((response) => {
       let cards = response.output
       cards.forEach(card => {
+        card.name = card.name[0].toUpperCase() + card.name.slice(1)
         $('#tcgContainer').append(`<aside>
 				<img class="tcg" src="${card.image}"/>
                 <h3>${card.name}</h3>

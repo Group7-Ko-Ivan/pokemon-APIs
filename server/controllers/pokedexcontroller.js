@@ -17,14 +17,14 @@ class PokedexController {
 
     static async readPokemon(req, res, next) {
        try {
-       let response = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=5&offset=0")
+       let response = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=50&offset=0")
        
             let pokemonData = response.data.results
             let output = []
 
             for (let i = 0; i < pokemonData.length; i++) {
                 let pokemonImage = await axios.get(pokemonData[i].url)
-                console.log(pokemonImage.data.sprites.front_default)
+                // console.log(pokemonImage.data.sprites.front_default)
                 let tempObj = {
                     name : pokemonData[i].name,
                     image : pokemonImage.data.sprites.front_default

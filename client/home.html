@@ -4,6 +4,8 @@
 <head>
     <link rel="icon" href="https://via.placeholder.com/70x70">
     <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com/%22%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
 
     <meta charset="utf-8">
     <meta name="description" content="My description">
@@ -16,58 +18,68 @@
     main {
       margin: 0;
     }
+    body {
+        justify-content: center;
+        background-image: url("https://images-ext-2.discordapp.net/external/JcmcO2x9Ls9WhHR319GhkvUCNVKZAqNcaYkUjfnjf3g/https/i.pinimg.com/originals/df/4e/8b/df4e8ba28f912bf9cdf9fa0dfc196411.png?width=1824&height=1140");
+    }
     .header-nav {
-			background-image: url("https://images-ext-2.discordapp.net/external/JcmcO2x9Ls9WhHR319GhkvUCNVKZAqNcaYkUjfnjf3g/https/i.pinimg.com/originals/df/4e/8b/df4e8ba28f912bf9cdf9fa0dfc196411.png?width=1824&height=1140");
-			background-size: 1080px 700px
-		}
-		.form-image {
-			align-content: center;
-			align-items: center;
-			margin-left: auto;
-			margin-right: auto;
-			display:  flex;
-			width: 90px;
-		}
-		.tcg {
-			align-content: center;
-			align-items: center;
-			margin-left: auto;
-			margin-right: auto;
-			display:  flex;
-			width: 200pxpx;
-		}
-        #tcgContainer {
-            /* display: grid; */
-            width: 100vw;
-            grid-template-columns: auto;
-            grid-gap: 20px;
-            padding: 20px;
-            column-count: 4;
-            display: flex;
-            justify-content: center;
-            padding: 3rem;
-            flex-wrap: wrap;
-        }
-        .card-custom {
-            width: 300px;
-            height: 300px;
-            padding: 0 !important;
-            border-radius: 10px !important;
-            box-shadow: 2px 2px 10px gray;
-            margin: 1rem;
-            position: relative;
-        }
-      .card-list {
-			  background: rgb(2,0,36);
-		    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(51,155,195,1) 0%, rgba(185,243,255,1) 100%);
-		  }
+        /* background-image: url("https://images-ext-2.discordapp.net/external/JcmcO2x9Ls9WhHR319GhkvUCNVKZAqNcaYkUjfnjf3g/https/i.pinimg.com/originals/df/4e/8b/df4e8ba28f912bf9cdf9fa0dfc196411.png?width=1824&height=1140"); */
+        background-size: 1080px 700px
+    }
+    .form-image {
+        align-content: center;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        display:  flex;
+        width: 90px;
+    }
+    .tcg {
+        align-content: center;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        display:  flex;
+        width: 200pxpx;
+    }
+    #tcgContainer {
+        /* display: grid; */
+        width: 100vw;
+        grid-template-columns: auto;
+        grid-gap: 20px;
+        padding: 20px;
+        column-count: 4;
+        display: flex;
+        justify-content: center;
+        padding: 3rem;
+        flex-wrap: wrap;
+    }
+    .card-custom {
+        width: 300px;
+        height: 300px;
+        padding: 0 !important;
+        border-radius: 10px !important;
+        box-shadow: 2px 2px 10px gray;
+        margin: 1rem;
+        position: relative;
+    }
+    .card-list {
+            background: rgb(2,0,36);
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(51,155,195,1) 0%, rgba(185,243,255,1) 100%);
+    }
+    aside {
+        background: white;
+        border-radius: 20px;
+        border: 30px solid #000000;
+        padding-right: 50px;
+    }
 	</style>
 
 </head>
 
 <body>
     <header class="header-nav">
-        <nav>
+        <nav style="margin-bottom:0">
             <a href="/" id=homeBtn><img alt="Logo" src="https://img.icons8.com/color/48/000000/mystic-pokemon.png" height="70"></a>
             <ul>
                 <li><a href="#" id=loginBtn>Login</a></li>
@@ -86,28 +98,35 @@
             <p>Please login or <mark>register</mark> first!</p>
             <br>
             <p><a href="#" id="login"><i>&nbsp; &nbsp; Login &nbsp; &nbsp;</i></a><a href="#" id=register><b>Register &rarr;</b></a></p>
-            <hr>
+
         </div>
     </header>
     <main>
-        <section>
-            <form id=loginForm>
-				<img class="form-image" src="https://img.icons8.com/color/48/000000/crown-pokemon.png"/>
+        <section class="homepage" id="afterLogin">
+            <img src="https://media.discordapp.net/attachments/770931521178959873/807152470643965992/ClipartKey_2651142.png">
+            <h1 style="font-family: 'Sora', sans-serif;">Welcome to the Pokemon Trading Card Game and PokeDex Database App!</h1>
+          </section>
+        <section id=loginForm style="justify-content: center;">
+            <form style="background: white;">
+                <img class="form-image" src="https://img.icons8.com/color/48/000000/crown-pokemon.png"/>
                 <header>
                     <h2>User Login</h2>
                 </header>
                 <label for="email">Email</label>
                 <input type="text" id="email" name="email" size="20" placeholder="e.g: John Doe">
-				<label for="password">Password</label>
+                <label for="password">Password</label>
                 <input type="password" id="password" name="password" size="20" placeholder="**********">
                 <div style="display: inline;">
                     <button type="submit">Submit</button>
                     <div class="g-signin2" data-onsuccess="onSignIn"></div>
                 </div>
             </form>
-			&nbsp; &nbsp;
-			 <form id=registerForm>
-				<img class="form-image" src="https://img.icons8.com/color/48/000000/crown-pokemon.png"/>
+
+        </section>
+        &nbsp; &nbsp;
+        <section id=registerForm style="justify-content: center;">
+            <form style="background: white;">
+                <img class="form-image" src="https://img.icons8.com/color/48/000000/crown-pokemon.png"/>
                 <header>
                     <h2>Register</h2>
                 </header>
@@ -115,20 +134,22 @@
                 <input type="text" id="name" name="name" size="20" placeholder="e.g: John Doe">
                 <label for="email">Email</label>
                 <input type="text" id="email" name="email" size="20" placeholder="e.g: JohnDoe@mail.com">
-				<label for="password">Password</label>
+                <label for="password">Password</label>
                 <input type="password" id="password" name="password" size="20" placeholder="**********">
                 <button type="submit">Submit</button>
             </form>
         </section>
 
-        <section class="card-list" id=tcgList style="width: 100vw;">
+        <section id=tcgList style="width: 100vw;">
             <hr>
             <header>
-                <h2><mark>Pokemon Dex</mark></h2>
-                <p>Dex for Pokemon Trading Card Games</p>
+                <h1 style="font-size: 50px; color: white;">Pokemon Dex</h1>
+                <p style="font-size: 30px; color: white;">Dex for Pokemon Trading Card Games</p>
             </header>
-            <div id=tcgContainer>
-
+            <div class="card-list">
+                <div id=tcgContainer >
+    
+                </div>
             </div>
             <!-- <aside>
 				<img class="tcg" src="https://images.pokemontcg.io/pl1/1.png"/>
