@@ -29,6 +29,12 @@
 			display:  flex;
 			width: 200pxpx;
 		}
+    .tcg-cards {
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      grid-gap: 10px;
+      padding: 10px;
+    }
 	</style>
 
 </head>
@@ -95,6 +101,7 @@
                 <h2><mark>Pokemon Dex</mark></h2>
                 <p>Dex for Pokemon Trading Card Games</p>
             </header>
+            <div class="tcg-cards">
             <aside>
 				<img class="tcg" src="https://images.pokemontcg.io/pl1/1.png"/>
                 <h3>Card heading</h3>
@@ -111,6 +118,17 @@
                 <h3>Card heading</h3>
                 <p>Card content</p>
             </aside>
+            <aside>
+              <img class="tcg" src="https://images.pokemontcg.io/pl1/1.png"/>
+                      <h3>Card heading</h3>
+                      <p>Card content</p>
+                  </aside>
+                  <aside>
+                    <img class="tcg" src="https://images.pokemontcg.io/pl1/1.png"/>
+                            <h3>Card heading</h3>
+                            <p>Card content</p>
+                        </aside>
+                        </div>
             <hr>
         </section>
     </main>
