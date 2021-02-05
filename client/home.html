@@ -13,9 +13,13 @@
     <title>PokeDex</title>
 
 	<style>
-        main {
-            margin: 0;
-        }
+    main {
+      margin: 0;
+    }
+    .header-nav {
+			background-image: url("https://images-ext-2.discordapp.net/external/JcmcO2x9Ls9WhHR319GhkvUCNVKZAqNcaYkUjfnjf3g/https/i.pinimg.com/originals/df/4e/8b/df4e8ba28f912bf9cdf9fa0dfc196411.png?width=1824&height=1140");
+			background-size: 1080px 700px
+		}
 		.form-image {
 			align-content: center;
 			align-items: center;
@@ -53,13 +57,16 @@
             margin: 1rem;
             position: relative;
         }
-
+      .card-list {
+			  background: rgb(2,0,36);
+		    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(51,155,195,1) 0%, rgba(185,243,255,1) 100%);
+		  }
 	</style>
 
 </head>
 
 <body>
-    <header>
+    <header class="header-nav">
         <nav>
             <a href="/" id=homeBtn><img alt="Logo" src="https://img.icons8.com/color/48/000000/mystic-pokemon.png" height="70"></a>
             <ul>
@@ -114,7 +121,7 @@
             </form>
         </section>
 
-        <section id=tcgList style="width: 100vw;">
+        <section class="card-list" id=tcgList style="width: 100vw;">
             <hr>
             <header>
                 <h2><mark>Pokemon Dex</mark></h2>
