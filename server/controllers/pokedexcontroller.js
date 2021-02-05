@@ -57,6 +57,7 @@ class PokedexController {
                 let prices = el.tcgplayer.prices.holofoil ? el.tcgplayer.prices.holofoil : el.tcgplayer.prices.normal ?  el.tcgplayer.prices.normal : el.tcgplayer.prices.reverseHolofoil ? el.tcgplayer.prices.reverseHolofoil : el.tcgplayer.prices["1stEditionHolofoil"] ? el.tcgplayer.prices["1stEditionHolofoil"] : 0 
                 return ({
                     name: el.name,
+                    image:el.images.small,
                     price: Math.round((prices.mid / dollar) * rupiah)
                 })
             })

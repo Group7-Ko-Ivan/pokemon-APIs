@@ -13,6 +13,9 @@
     <title>PokeDex</title>
 
 	<style>
+        main {
+            margin: 0;
+        }
 		.form-image {
 			align-content: center;
 			align-items: center;
@@ -29,12 +32,27 @@
 			display:  flex;
 			width: 200pxpx;
 		}
-    .tcg-cards {
-      display: grid;
-      grid-template-columns: auto auto auto auto;
-      grid-gap: 10px;
-      padding: 10px;
-    }
+        #tcgContainer {
+            /* display: grid; */
+            width: 100vw;
+            grid-template-columns: auto;
+            grid-gap: 20px;
+            padding: 20px;
+            column-count: 4;
+            display: flex;
+            justify-content: center;
+            padding: 3rem;
+            flex-wrap: wrap;
+        }
+        .card-custom {
+            width: 300px;
+            height: 300px;
+            padding: 0 !important;
+            border-radius: 10px !important;
+            box-shadow: 2px 2px 10px gray;
+            margin: 1rem;
+            position: relative;
+        }
 	</style>
 
 </head>
@@ -95,14 +113,18 @@
             </form>
         </section>
 
-        <section id=tcgList>
+        <section id=tcgList style="width: 100vw;">
             <hr>
             <header>
                 <h2><mark>Pokemon Dex</mark></h2>
                 <p>Dex for Pokemon Trading Card Games</p>
             </header>
-            <div class="tcg-cards">
-            <aside>
+
+            <div id=tcgContainer>
+
+            </div>
+            <!-- <aside>
+
 				<img class="tcg" src="https://images.pokemontcg.io/pl1/1.png"/>
                 <h3>Card heading</h3>
                 <p>Card content*</p>
@@ -119,17 +141,12 @@
                 <p>Card content</p>
             </aside>
             <aside>
-              <img class="tcg" src="https://images.pokemontcg.io/pl1/1.png"/>
-                      <h3>Card heading</h3>
-                      <p>Card content</p>
-                  </aside>
-                  <aside>
-                    <img class="tcg" src="https://images.pokemontcg.io/pl1/1.png"/>
-                            <h3>Card heading</h3>
-                            <p>Card content</p>
-                        </aside>
-                        </div>
-            <hr>
+				<img class="tcg" src="https://images.pokemontcg.io/pl1/1.png"/>
+                <h3>Card heading</h3>
+                <p>Card content*</p>
+                <p><small>*with small content</small></p>
+            </aside> -->
+
         </section>
     </main>
 
