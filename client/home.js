@@ -3,27 +3,49 @@ const baseURL = 'http://localhost:3000'
 function checkToken() {
   if (!localStorage.access_token) {
     $("#logoutBtn").hide()
+    $("#wheretoBtn").hide()
+    $("#loginBtn").show(500)
     $("#registerBtn").show(500)
-    $("#loginForm").show(500)
+    $("#notLogin").show(500)
     $('#registerForm').hide()
+    $("#loginForm").hide()
+    $('#tcgList').hide()
   } else {
     $("#logoutBtn").show(500)
+    $("#wheretoBtn").show(500)
+    $("#loginBtn").hide()
     $("#registerBtn").hide()
     $("#loginForm").hide()
+    $("#notLogin").hide()
     $('#registerForm').hide()
+    $('#tcgList').show(500)
   }
 }
 function registerFormShow() {
+  $("#notLogin").hide()
   $("#logoutBtn").hide()
   $("#registerBtn").hide()
+  $("#loginBtn").show(500)
   $("#loginForm").hide()
+  $("#wheretoBtn").hide()
   $("#registerForm").show(500)
+}
+function loginFormShow() {
+  $("#notLogin").hide()
+  $("#logoutBtn").hide()
+  $("#registerBtn").show(500)
+  $("#wheretoBtn").hide()
+  $("#registerForm").hide()
+  $("#loginBtn").hide()
+  $("#loginForm").show(500)
 }
 
 function register() {
-  const email = $('#registerEmail').val();
-  const password = $('#registerPassword').val();
-  const name = $('#registerName').val();
+  const email = $('#registerForm #email').val();
+  const password = $('#registerForm #password').val();
+  const name = $('#registerForm #name').val();
+
+  console.log(name, email, password);
 
   $.ajax({
     url: baseURL + "/users/register",
@@ -35,9 +57,7 @@ function register() {
     }
   })
     .done((response) => {
-      $('#loginEmail').val(email)
-      $('#loginPassword').val(password)
-      login()
+     checkToken()
     })
     .fail((xhr, text) => {
       console.log({xhr, text});
@@ -51,8 +71,8 @@ function register() {
 
 
 function login() {  
-  const email = $('#loginEmail').val();
-  const password = $('#loginPassword').val();
+  const email = $("#loginForm #email").val()
+  const password = $("#loginForm #password").val()
 
   $.ajax({
     url: baseURL + "/users/login",
@@ -120,13 +140,21 @@ $(document).ready(function(){
     logout()
   })
 
+  $("p #register").on("click", (e) => {
+    e.preventDefault()
+    registerFormShow()
+  })
+  $("p #login").on("click", (e) => {
+    e.preventDefault()
+    loginFormShow()
+  })
   $("#registerBtn").on("click", (e) => {
     e.preventDefault()
     registerFormShow()
   })
   $("#loginBtn").on("click", (e) => {
     e.preventDefault()
-    checkToken()
+    loginFormShow()
   })
 
   //--- Form Function
