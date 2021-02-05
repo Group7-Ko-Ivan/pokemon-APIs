@@ -54,7 +54,7 @@ class PokedexController {
 
             output = dataPokemon.map(el => {
 
-                let prices = el.tcgplayer.prices.holofoil ? el.tcgplayer.prices.holofoil : el.tcgplayer.prices.normal ?  el.tcgplayer.prices.normal : el.tcgplayer.prices.reverseHolofoil ? el.tcgplayer.prices.reverseHolofoil : el.tcgplayer.prices["1stEditionHolofoil"] ? el.tcgplayer.prices["1stEditionHolofoil"] : 0 
+                let prices = el.tcgplayer.prices["1stEditionHolofoil"] ? el.tcgplayer.prices["1stEditionHolofoil"] : el.tcgplayer.prices.holofoil ? el.tcgplayer.prices.holofoil : el.tcgplayer.prices.reverseHolofoil ? el.tcgplayer.prices.reverseHolofoil : el.tcgplayer.prices.normal ?  el.tcgplayer.prices.normal : 0 
                 return ({
                     name: el.name,
                     image:el.images.small,

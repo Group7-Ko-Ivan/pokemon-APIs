@@ -96,6 +96,10 @@ function login() {
 
 function logout() {
   localStorage.removeItem("access_token")
+  var auth2 = gapi.auth2.getAuthInstance();
+  auth2.signOut().then(function () {
+    console.log('User signed out.');
+  });
   checkToken()
 }
 
@@ -125,6 +129,7 @@ function onSignIn(googleUser) {
 }
 
 function getTcg() {
+  $('#tcgContainer').empty()
   $.ajax({
     method: 'GET',
     url: baseURL + "/pokedex/currency",
@@ -133,12 +138,36 @@ function getTcg() {
     }
   })
     .done((response) => {
-      let cards = response.slice(10)
+      let cards = response.slice()
       cards.forEach(card => {
         $('#tcgContainer').append(`<aside>
 				<img class="tcg" src="${card.image}"/>
                 <h3>${card.name}</h3>
                 <p>Rp. ${card.price},00</p>
+            </aside>`)
+      })
+      $('#tcgList').show(500)
+    })
+    .fail((xhr, text) => {
+      console.log(xhr, text);
+    })
+}
+
+function getPokemon() {
+  $('#tcgContainer').empty()
+  $.ajax({
+    method: 'GET',
+    url: baseURL + "/pokedex/pokemon",
+    headers:{
+      access_token: localStorage.getItem('access_token')
+    }
+  })
+    .done((response) => {
+      let cards = response.output
+      cards.forEach(card => {
+        $('#tcgContainer').append(`<aside>
+				<img class="tcg" src="${card.image}"/>
+                <h3>${card.name}</h3>
             </aside>`)
       })
       $('#tcgList').show(500)
@@ -182,6 +211,10 @@ $(document).ready(function(){
   $("#tcgBtn").on("click", (e) => {
     e.preventDefault()
     getTcg()
+  })
+  $("#pokeBtn").on("click", (e) => {
+    e.preventDefault()
+    getPokemon()
   })
 
   //--- Form Function
