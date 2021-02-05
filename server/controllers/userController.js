@@ -60,7 +60,6 @@ class UserController {
     })
       .then(ticket => {
         const payload = ticket.getPayload()
-        console.log(payload);
         email = payload.email
         fullname = payload.name
         
@@ -77,6 +76,7 @@ class UserController {
           const access_token = generateToken(payload)
           res.status(200).json(access_token)
         } else {
+          console.log('MASUK ===========================================');
           return User.create({name: fullname, email, password})
         }
       })
