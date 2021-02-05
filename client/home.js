@@ -18,7 +18,7 @@ function checkToken() {
     $("#loginForm").hide()
     $("#notLogin").hide()
     $('#registerForm').hide()
-    $('#tcgList').show(500)
+    $('#tcgList').hide()
   }
 }
 function registerFormShow() {
@@ -45,7 +45,6 @@ function register() {
   const password = $('#registerForm #password').val();
   const name = $('#registerForm #name').val();
 
-  console.log(name, email, password);
 
   $.ajax({
     url: baseURL + "/users/register",
@@ -125,6 +124,30 @@ function onSignIn(googleUser) {
     })
 }
 
+function getTcg() {
+  $.ajax({
+    method: 'GET',
+    url: baseURL + "/pokedex/currency",
+    headers:{
+      access_token: localStorage.getItem('access_token')
+    }
+  })
+    .done((response) => {
+      let cards = response.slice(10)
+      cards.forEach(card => {
+        $('#tcgContainer').append(`<aside>
+				<img class="tcg" src="${card.image}"/>
+                <h3>${card.name}</h3>
+                <p>Rp. ${card.price},00</p>
+            </aside>`)
+      })
+      $('#tcgList').show(500)
+    })
+    .fail((xhr, text) => {
+      console.log(xhr, text);
+    })
+}
+
 $(document).ready(function(){
   checkToken()
 
@@ -155,6 +178,10 @@ $(document).ready(function(){
   $("#loginBtn").on("click", (e) => {
     e.preventDefault()
     loginFormShow()
+  })
+  $("#tcgBtn").on("click", (e) => {
+    e.preventDefault()
+    getTcg()
   })
 
   //--- Form Function
