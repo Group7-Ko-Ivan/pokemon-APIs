@@ -8,7 +8,7 @@
 
 Returns All Pokemon Trading Card List
 
-* URL: `/card`
+* URL: `/pokedex/card`
 
 * Method: `GET`
 
@@ -39,7 +39,7 @@ Returns All Pokemon Trading Card List
 
 Returns All Pokedex List
 
-* URL: `/pokemon`
+* URL: `/pokedex/pokemon`
 
 * Method: `GET`
 
@@ -51,10 +51,11 @@ Returns All Pokedex List
 
   * **Code**: `200`
   * **Content**:
-    > `"images": {
-        "small": "https://images.pokemontcg.io/pl1/1.png",
-        "large": "https://images.pokemontcg.io/pl1/1_hires.png"
-    }`
+    > `{"output": [
+        "pokemon name",
+        "https://images.pokemontcg.io/det1/1.png",
+        "pokemon price in IDR"
+        }`
 
 <br>
 
@@ -70,7 +71,7 @@ Returns All Pokedex List
 
 Returns Currency List
 
-* URL: `/currency`
+* URL: `/pokedex/currency`
 
 * Method: `GET`
 
