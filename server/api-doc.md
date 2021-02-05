@@ -173,4 +173,4 @@ Register User
   * **Code**: `500`
   * **Content**:
     > `{ errors: [ "Internal server error" ] 
-    }`
+    }` 
