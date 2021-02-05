@@ -73,20 +73,21 @@ class UserController {
             id: user.id,
             email: user.email
           }
+          console.log(payload);
           const access_token = generateToken(payload)
-          res.status(200).json(access_token)
+          res.status(200).json( { access_token } )
         } else {
           console.log('MASUK ===========================================');
           return User.create({name: fullname, email, password})
+          .then(user => {
+            const payload = {
+              id: user.id,
+              email: user.email
+            }
+            const access_token = generateToken(payload)
+            res.status(200).json( { access_token } )
+          })
         }
-      })
-      .then(user => {
-        const payload = {
-          id: user.id,
-          email: user.email
-        }
-        const access_token = generateToken(payload)
-        res.status(200).json( { access_token } )
       })
       .catch( err => {
         next(err);

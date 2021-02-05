@@ -17,14 +17,14 @@ class PokedexController {
 
     static async readPokemon(req, res, next) {
        try {
-       let response = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=5&offset=0")
+       let response = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=50&offset=0")
        
             let pokemonData = response.data.results
             let output = []
 
             for (let i = 0; i < pokemonData.length; i++) {
                 let pokemonImage = await axios.get(pokemonData[i].url)
-                console.log(pokemonImage.data.sprites.front_default)
+                // console.log(pokemonImage.data.sprites.front_default)
                 let tempObj = {
                     name : pokemonData[i].name,
                     image : pokemonImage.data.sprites.front_default
@@ -54,7 +54,7 @@ class PokedexController {
 
             output = dataPokemon.map(el => {
 
-                let prices = el.tcgplayer.prices.holofoil ? el.tcgplayer.prices.holofoil : el.tcgplayer.prices.normal ?  el.tcgplayer.prices.normal : el.tcgplayer.prices.reverseHolofoil ? el.tcgplayer.prices.reverseHolofoil : el.tcgplayer.prices["1stEditionHolofoil"] ? el.tcgplayer.prices["1stEditionHolofoil"] : 0 
+                let prices = el.tcgplayer.prices["1stEditionHolofoil"] ? el.tcgplayer.prices["1stEditionHolofoil"] : el.tcgplayer.prices.holofoil ? el.tcgplayer.prices.holofoil : el.tcgplayer.prices.reverseHolofoil ? el.tcgplayer.prices.reverseHolofoil : el.tcgplayer.prices.normal ?  el.tcgplayer.prices.normal : 0 
                 return ({
                     name: el.name,
                     image:el.images.small,
