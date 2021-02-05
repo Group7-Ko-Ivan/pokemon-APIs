@@ -155,3 +155,34 @@ Register User
 * **Error Response**
   * **Code**: `500`
   * **Content**: `Internal Server Error`
+
+  
+<br>
+
+## Fetch Pokemon TCG API
+---
+
+Register User
+
+* URL: `/tcg`
+
+* Method: `get`
+
+* Request Params: `None`
+
+* Request Body: `None`
+
+* Success Response:
+
+  * **Code**: `200`
+  * **Content**:
+    > `"images": {
+        "small": "https://images.pokemontcg.io/pl1/1.png",
+        "large": "https://images.pokemontcg.io/pl1/1_hires.png"
+    }`
+
+<br>
+
+* **Error Response**
+  * **Code**: `500`
+  * **Content**: `Internal Server Error`
